@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0a0c49cf7f1ce22c6b0945518568713ef93c092ab0dd43a9b2d22081bf861688
-size 556
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Button } from "components/ui/button";
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <Button>Click me</Button>
+      </header>
+    </div>
+  );
+}
+
+export default App;
