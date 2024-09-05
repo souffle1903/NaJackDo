@@ -1,18 +1,3 @@
-import { Button } from "components/ui/button";
-import "./App.css";
-
-function App() {
-  // sentry test
-  // function methodDoesNotExist(): void {
-  //   throw new Error("Function not implemented.");
-  // }
-
-  return (
-    <div className="App">
-      <Button>Click me</Button>
-      {/* <button onClick={() => methodDoesNotExist()}>Break the world</button>; */}
-    </div>
-  );
-}
-
-export default App;
+version https://git-lfs.github.com/spec/v1
+oid sha256:526dff2aa319854db806c557828bd8ab5e2d6be4d6ab6c62a685a6abb7cdda0d
+size 927
