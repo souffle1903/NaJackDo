@@ -1,15 +1,3 @@
-import { Link } from "react-router-dom";
-
-const Footer = () => {
-  return (
-    <footer className="fixed bottom-0 w-screen h-10 border border-t-1 pt-3 flex flex-row justify-around">
-      <Link to="/">홈</Link>
-      <Link to="/location">내 주변</Link>
-      <Link to="/library">서재</Link>
-      <Link to="/chat">채팅</Link>
-      <Link to="/profile">마이</Link>
-    </footer>
-  );
-};
-
-export default Footer;
+version https://git-lfs.github.com/spec/v1
+oid sha256:735da4463268960cf75757d57bcc8e37140372cc381010a9caf8dc9bd0cc8b71
+size 1725
