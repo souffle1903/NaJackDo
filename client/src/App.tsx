@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3d4d26632d91d047530b458cf88464f6637f7ff2475ad770d4b5931253f50cdf
-size 1248
+// src/App.tsx
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+
+import Footer from "components/common/Footer";
+import Header from "components/common/Header";
+import MainRoute from "components/routes/MainRoute";
+
+import "./App.css";
+
+function App() {
+  return (
+    <div className="App relative">
+      <Header />
+      <Routes>
+        <Route path="/*" element={<MainRoute />} />
+      </Routes>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
