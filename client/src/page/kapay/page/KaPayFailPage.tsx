@@ -1,12 +1,3 @@
-import React from "react";
-
-const KaPayFailPage = () => {
-  return (
-    <div>
-      <h1>결제 실패</h1>
-      <p>결제 처리 중 오류가 발생했습니다.</p>
-    </div>
-  );
-};
-
-export default KaPayFailPage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:b391ae115b7f58ed35f60499ae78ea199a787faf757c8617ca1130dd6d6d53d0
+size 661
