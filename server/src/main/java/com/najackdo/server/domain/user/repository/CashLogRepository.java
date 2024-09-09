@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6d7425372aea3c9bd2b3c8fa1c90d265641cc366f211f6baa3101175c35ef1d1
-size 906
+package com.najackdo.server.domain.user.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.najackdo.server.domain.user.entity.CashLog;
+
+public interface CashLogRepository extends JpaRepository<CashLog, Long> {
+
+	@Query("SELECT c FROM CashLog c WHERE c.user.id = :userId")
+	List<CashLog> findAllByUserId(@Param("userId") Long userId);
+
+}
