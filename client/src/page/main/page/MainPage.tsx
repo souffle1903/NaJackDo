@@ -1,13 +1,3 @@
-import { useNavigate } from "react-router-dom";
-
-const MainPage = () => {
-  const nav = useNavigate();
-  return (
-    <div>
-      <h1>Main</h1>
-      <button onClick={() => nav("/login")}>login</button>
-    </div>
-  );
-};
-
-export default MainPage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:dd6dbd277705c510a2e26e506f39b66e389f6b1641dc7d515cf3f5a69c7a83e1
+size 1472
