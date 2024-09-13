@@ -1,14 +1,3 @@
-package com.najackdo.server.domain.location.repository;
-
-import java.util.List;
-
-import org.locationtech.jts.geom.Point;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
-
-import com.najackdo.server.domain.location.entity.Location;
-
-public interface LocationQueryRepository {
-	Page<Location> findLocationsByDistance(@Param("point") Point point, Pageable pageable);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:eba3610b9f787dd6a171f74962439d14905319d65f8ad51bf8fd74bdc0a6c575
+size 628
