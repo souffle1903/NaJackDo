@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6bb8c953dfdece7e8a1edbd870f516815813a7b8165b2a87d0cc645959200afc
-size 559
+import RecentSearchText from "page/search/components/RecentSearchText";
+
+const RecentSearch = () => {
+  return (
+    <div className="my-6">
+      <span className="font-bold">최근 검색</span>
+      <div>
+        <RecentSearchText />
+        <RecentSearchText />
+        <RecentSearchText />
+        <RecentSearchText />
+        <RecentSearchText />
+        <RecentSearchText />
+        <RecentSearchText />
+        <RecentSearchText />
+      </div>
+    </div>
+  );
+};
+
+export default RecentSearch;
