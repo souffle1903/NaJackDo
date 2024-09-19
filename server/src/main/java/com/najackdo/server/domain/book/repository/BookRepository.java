@@ -1,9 +1,3 @@
-package com.najackdo.server.domain.book.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.najackdo.server.domain.book.entity.Book;
-
-public interface BookRepository extends JpaRepository<Book, Long> {
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:93ba7ae42f65da04df452c123e182eced659d2365d7e87ee4f18ceaecea470ea
+size 675
