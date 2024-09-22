@@ -1,21 +1,3 @@
-package com.najackdo.server.domain.survey.controller;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
-@RestController
-@RequestMapping(value = "/api/v1/survey")
-@RequiredArgsConstructor
-public class SurveyController {
-
-	/**
-	 * 설문 정보 API
-	 *
-	 * @param surveyId
-	 *
-	 */
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:daf939f181722ce42a40218b8d9ec3159f0f3dd4c9ce468d474ea74075590730
+size 522
