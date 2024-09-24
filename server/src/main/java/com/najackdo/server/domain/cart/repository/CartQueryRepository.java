@@ -1,18 +1,3 @@
-package com.najackdo.server.domain.cart.repository;
-
-import java.util.Optional;
-
-import com.najackdo.server.domain.cart.entity.Cart;
-
-public interface CartQueryRepository {
-
-	/**
-	 * 사용자 id와 도서 id로 장바구니 조회
-	 *
-	 * @param userId 사용자 id
-	 * @param bookId 도서 id
-	 * @return {@link Optional<Cart>} 장바구니
-	 */
-	Optional<Cart> findCartByUserIdAndBookId(Long userId, Long bookId);
-	
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6c511d9aea5662a569800684eecbdf0c88499b4141354befe4aab36b4fc6d7b6
+size 637
