@@ -1,15 +1,3 @@
-package com.najackdo.server.domain.rental.entity;
-
-public enum ReviewItems {
-
-	// 시간
-	TIME_GOOD,
-	TIME_BAD,
-	// 책
-	BOOK_GOOD,
-	BOOK_BAD,
-	// 사진과 같다 or 다르다
-	PHOTO_SAME,
-	PHOTO_DIFFERENT,
-	
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9bc00ef0f80185c59a494708f92882dcca6ca70882800f76837740a5ae9d3610
+size 714

@@ -1,16 +1,3 @@
-import { IoMdTime } from "react-icons/io";
-import { PiXBold } from "react-icons/pi";
-
-const RecentSearchText = () => {
-  return (
-    <div className="mx-2 my-4 flex flex-row justify-between">
-      <div className="flex flex-row">
-        <IoMdTime size={25} color="#545454" />
-        <span className="ml-3">search text</span>
-      </div>
-      <PiXBold color="#545454" />
-    </div>
-  );
-};
-
-export default RecentSearchText;
+version https://git-lfs.github.com/spec/v1
+oid sha256:860a1289967911e2f2a218342006e79cf81abbb321b263e536129ff1a3a7d35b
+size 1348
