@@ -1,16 +1,3 @@
-package com.najackdo.server.domain.rental.controller;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
-@RestController
-@RequestMapping(value = "/api/v1/review")
-@RequiredArgsConstructor
-@Tag(name = "리뷰 관련 API ")
-public class RentalReviewController {
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:962f75715c81578ec4fdeff131edf7b510eb7c31d3fa04bb4d95a54c4b67490e
+size 1331
