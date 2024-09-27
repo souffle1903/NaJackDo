@@ -1,18 +1,3 @@
-import { IoIosSearch } from "react-icons/io";
-
-interface IAutoSearchTextProps {
-  text: string;
-}
-
-const AutoSearchText = ({ text }: IAutoSearchTextProps) => {
-  return (
-    <div className="mx-2 my-2 flex flex-row items-center">
-      <div>
-        <IoIosSearch size={25} color="#545454" />
-      </div>
-      <p className="ml-3 text-sm">{text}</p>
-    </div>
-  );
-};
-
-export default AutoSearchText;
+version https://git-lfs.github.com/spec/v1
+oid sha256:22c8e497aedc9efe5a152278f6a3d141993900637206b5a6b5296595cf125d20
+size 768
