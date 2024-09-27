@@ -1,16 +1,3 @@
-from fastapi import FastAPI
-import reco_sys
-from pymongo import MongoClient
-
-app = FastAPI()
-client = MongoClient("mongodb://najackdo:najackdo@mongodb:27017/najackdo?authSource=admin", maxPoolSize=30, minPoolSize=5)
-
-db = client.najackdo
-
-
-
-@app.get("/item/recomm/{bookId}")
-async def recomm_books(bookId : int):
-    result = reco_sys.recomm_book_list(bookId, db, None)
-    
-    return {"bookIds": result}  
+version https://git-lfs.github.com/spec/v1
+oid sha256:17ae883d8ec05537ff5273875ffa513d14c925d498bba8f0955da5d0403274c3
+size 4636
