@@ -1,15 +1,3 @@
-package com.najackdo.server.domain.chat.service;
-
-import java.util.List;
-
-import com.najackdo.server.domain.chat.dto.ChatRoomDTO;
-import com.najackdo.server.domain.chat.entity.Chat;
-import com.najackdo.server.domain.user.entity.User;
-
-public interface ChatService {
-	List<ChatRoomDTO> chatRoomList();
-
-	ChatRoomDTO createRoom(User customerId, Long owner, Long cartId);
-
-	List<Chat.Message> getChatList(String roomId, User user);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:c009145d61acfd9a73dff02d1429977a689e061b3abbd391d8fc6bd5c15dc3b6
+size 3031
