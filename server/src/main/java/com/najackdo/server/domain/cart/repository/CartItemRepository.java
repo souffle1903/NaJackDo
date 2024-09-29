@@ -1,16 +1,3 @@
-package com.najackdo.server.domain.cart.repository;
-
-import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
-
-import com.najackdo.server.domain.cart.entity.CartItem;
-
-@Repository
-public interface CartItemRepository extends JpaRepository<CartItem, Long> {
-
-	@Query("SELECT ci FROM CartItem ci WHERE ci.cart.id = :id")
-	List<CartItem> findCartItemsByCartId(Long id);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:37a2e3c51ef46bfa0e2e9cbdc8a1891d4ab97dd9fb59f45a4db73cf6d351032c
+size 554
