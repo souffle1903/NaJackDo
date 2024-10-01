@@ -1,9 +1,3 @@
-const LogoutButton = () => {
-  return (
-    <button className="w-full h-[40px]  my-6 bg-[#776B5D] rounded-lg  font-medium text-white">
-      로그아웃
-    </button>
-  );
-};
-
-export default LogoutButton;
+version https://git-lfs.github.com/spec/v1
+oid sha256:c091c8dba050f4c8d6708ec1d074779ced97d86f89697ab57633a620700f5d27
+size 863
