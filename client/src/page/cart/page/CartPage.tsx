@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ad125af758d906938980d65a8d98e294b454ce600a7eafef6fe0e17719e67708
-size 1500
+import Loading from "components/common/Loading";
+import CartHeader from "page/cart/components/CartHeader";
+import CartList from "page/cart/components/CartList";
+import { Suspense } from "react";
+
+const CartPage = () => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <div className="mx-[25px] py-4">
+        <CartHeader />
+        <CartList />
+      </div>
+    </Suspense>
+  );
+};
+
+export default CartPage;
