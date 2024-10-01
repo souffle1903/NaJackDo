@@ -1,21 +1,3 @@
-package com.najackdo.server.domain.rental.dto;
-
-import lombok.Data;
-
-public class RentalData {
-
-	@Data
-	public static class RentalRequest {
-		private Long cartId;
-		private int rentalCost;
-		private int rentalPeriod;
-		private int totalPrice;
-
-	}
-
-	@Data
-	public static class ReturnRequest {
-		private Long rentalId;
-		private Long customerId;
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:663b6feba28bb25b4085fc4bc9ebae30c6d9d571891fec50314e9f4d11d51a56
+size 752
