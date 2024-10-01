@@ -1,10 +1,3 @@
-package com.najackdo.server.domain.cart.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
-import com.najackdo.server.domain.cart.entity.Cart;
-
-public interface CartRepository extends JpaRepository<Cart, Long>, CartQueryRepository {
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:39aaeb5efedd7d44ed4fbeef46d2b12eeef2abe551e55131515dabc31f95ab48
+size 620
