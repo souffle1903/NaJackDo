@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:099ec3a7a5e25dfc1795ea898a75dbad3ba181b58e01e92dafb3c4ec990acbdc
-size 515
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
+
+interface AuthState {
+  accessToken: string | null;
+  setAccessToken: (accessToken: string) => void;
+}
+
+export const useAuthStore = create(
+  persist<AuthState>(
+    (set) => ({
+      accessToken: "",
+
+      setAccessToken: (accessToken) => {
+        set({ accessToken });
+      },
+    }),
+    { name: "auth-store", storage: createJSONStorage(() => sessionStorage) }
+  )
+);
