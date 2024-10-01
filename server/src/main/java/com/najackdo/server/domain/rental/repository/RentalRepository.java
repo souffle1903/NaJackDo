@@ -1,16 +1,3 @@
-package com.najackdo.server.domain.rental.repository;
-
-import java.util.Optional;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-
-import com.najackdo.server.domain.rental.entity.Rental;
-
-public interface RentalRepository extends JpaRepository<Rental, Long> {
-
-	@Query("SELECT r FROM Rental r WHERE r.cart.id = :cartId")
-	Optional<Rental> findByCartId(@Param("cartId") Long cartId);
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e4c541cebd1ad4113e66b51716d90b0ed6b67085eb3085d917299bb4e036444c
+size 1266
