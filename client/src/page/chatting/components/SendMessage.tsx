@@ -1,15 +1,3 @@
-interface SendMessageProps {
-  message: string;
-}
-
-const SendMessage = ({ message }: SendMessageProps) => {
-  return (
-    <div className="flex flex-row justify-end w-full">
-      <p className="bg-[#5F6F52] p-3 rounded-xl rounded-tr-none text-white text-right ml-auto">
-        {message}
-      </p>
-    </div>
-  );
-};
-
-export default SendMessage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:fce7264f5d0d367f4b6cee96fb047e16a02b7202449e2bf54f487816745771fa
+size 638
