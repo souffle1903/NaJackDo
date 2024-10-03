@@ -1,20 +1,3 @@
-import { useNavigate } from "react-router-dom";
-
-const ReviewButton = () => {
-  const navigate = useNavigate();
-
-  const handleReview = () => {
-    navigate("/chat/review");
-  };
-
-  return (
-    <button
-      className="bg-[#776B5D] text-white rounded-lg py-2 px-3"
-      onClick={handleReview}
-    >
-      후기 보내기
-    </button>
-  );
-};
-
-export default ReviewButton;
+version https://git-lfs.github.com/spec/v1
+oid sha256:e019f1223914505461ff17431738a997338d12ca97f52256754c44a6637438a9
+size 535
