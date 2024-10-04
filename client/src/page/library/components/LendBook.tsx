@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:05524b9dbfd90b10fd87b1eb75bbc8602251f57a74a75cd9453a669bd52e2ce5
-size 620
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { getLendHistory } from "api/historyApi";
+import { IHistory } from "atoms/History.type";
+import HistoryList from "page/library/components/HistoryList";
+
+const LendBook = () => {
+  const { data: lendHistory } = useSuspenseQuery<IHistory[]>({
+    queryKey: ["myBookCase"],
+    queryFn: getLendHistory,
+  });
+
+  return <HistoryList historyData={lendHistory} title="내가 빌려준 책" />;
+};
+
+export default LendBook;
