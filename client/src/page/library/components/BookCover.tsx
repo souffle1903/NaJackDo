@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0fe7bc04e5894e7fd213309f9a0db64cf7562b64ad6323ce048610d9903acec4
-size 582
+import { INearAvailableBook } from "atoms/Book.type";
+import { IoIosLeaf } from "react-icons/io";
+
+interface BookCoverProps {
+  book: INearAvailableBook;
+}
+
+const BookCover = ({ book }: BookCoverProps) => {
+  return (
+    <div>
+      <img src={book.imagePath} alt="이미지" />
+      <div className="flex flex-row items-center justify-center">
+        <IoIosLeaf color="#A6B37D" />
+        <p className="mx-1">{book.oneDayPrice}</p>
+      </div>
+    </div>
+  );
+};
+
+export default BookCover;
