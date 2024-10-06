@@ -1,17 +1,3 @@
-interface BaseProfileProps { 
-  userImage?: string;
-  width?: string;
-  height?: string;
- }
-
-const BaseProfile = ({userImage, width, height }: BaseProfileProps) => {
-  return (
-    <img
-      src={userImage || '/basic_profile.png'}
-      alt='profile'
-      className={`h-${height} w-${width} rounded-full`}
-      />
-  );
-};
-
-export default BaseProfile;
+version https://git-lfs.github.com/spec/v1
+oid sha256:5b21c0bb12f3983b77649b797203ce37734b44582fd3d4e450d1d401cc7718ba
+size 602
