@@ -1,15 +1,3 @@
-import Loading from "components/common/Loading";
-import ChatRoomList from "page/chatting/components/ChatRoomList";
-import { Suspense } from "react";
-
-const ChattingPage = () => {
-  return (
-    <Suspense fallback={<Loading />}>
-      <div className="mx-[25px] relative">
-        <ChatRoomList />
-      </div>
-    </Suspense>
-  );
-};
-
-export default ChattingPage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:3b1cd3855297062f16a96b84c16019a70a20f9d5e91eedc0ca502051c72eef43
+size 549
