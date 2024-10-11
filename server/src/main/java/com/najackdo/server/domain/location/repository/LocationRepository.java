@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dd4023d97cb28560b1e0be5b9cf6025aae6116601c77d4750e8f42b651c62980
-size 514
+package com.najackdo.server.domain.location.repository;
+
+import com.najackdo.server.domain.location.entity.Location;
+import io.lettuce.core.dynamic.annotation.Param;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+public interface LocationRepository extends JpaRepository<Location,Integer>, LocationQueryRepository {
+
+    @Query("SELECT l FROM Location l WHERE l.id = :locationId ")
+    Location findById(@Param("locationId") int locationId);
+}

@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:30ac4b3af7e1f593c962ac4b810e99da3be5e341cd2760f832a71e70a58fc2c0
-size 1244
+import { Button } from "components/ui/button";
+import { IoIosLeaf } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+
+const KaPayFailPage = () => {
+  const navigate = useNavigate();
+  const canCloseWindow = window.opener !== null && !window.opener.closed;
+  const bottonStyle = "bg-sub6 hover:bg-sub7";
+
+  const handleRedirect = () => {
+    navigate("/profile");
+  };
+
+  return (
+    <div
+      className="flex flex-col items-center justify-center"
+      style={{ height: "calc(100vh - 86px)" }}
+    >
+      <span className="maplestory text-4xl text-sub9">책잎 결제 실패</span>
+      <div className="flex flex-row items-center my-10">
+        <IoIosLeaf color="#79AC78" size={29} className="mx-1" />
+        <p className="font-bold">
+          <span className="text-sub2 text-xl maplestory mr-1">책잎</span>
+          결제 처리 중 오류가 발생하였습니다.
+        </p>
+      </div>
+      {canCloseWindow ? (
+        <Button className={bottonStyle} onClick={() => window.close()}>
+          닫기
+        </Button>
+      ) : (
+        <Button className={bottonStyle} onClick={handleRedirect}>
+          마이 페이지로!
+        </Button>
+      )}
+    </div>
+  );
+};
+
+export default KaPayFailPage;

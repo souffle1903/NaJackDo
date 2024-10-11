@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6dbaaafd4c0a71d104680d39f2090f3c10f4105e5e16ecfa33912c42996ed1d9
-size 717
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext", "webworker"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["./components/*"],
+      "icons/*": ["./icons/*"],
+      "lib/*": ["./lib/*"],
+      "page/*": ["./page/*"]
+    },
+    "types": ["node"]
+  },
+  "include": ["src"]
+}

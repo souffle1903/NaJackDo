@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:697d8763100c440ba9b9686f556fc3e821bf813e5d4c8778af23fd62f4f2895e
-size 1050
+package com.najackdo.server.domain.auth.handler;
+
+import java.io.IOException;
+
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.stereotype.Component;
+import com.najackdo.server.core.exception.ErrorCode;
+import com.najackdo.server.core.response.ErrorResponse;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@Component
+public class CustomAuthenticationDeniedHandler implements AccessDeniedHandler {
+    @Override
+    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException {
+        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+        ErrorResponse errorResponse = ErrorResponse.of(ErrorCode.ACCESS_DENIED, request.getAttribute("error-message").toString());
+        response.setContentType("application/json;charset=UTF-8");
+        response.getWriter().write(errorResponse.toJson());
+    }
+}

@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0c41a3646862bb877c6f1c3475ebb9bf718b95fc6cc725eb17ecc7e43a03d7dc
-size 803
+package com.najackdo.server.domain.book.repository;
+
+import static com.najackdo.server.domain.book.entity.QUserBookDetail.*;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Repository;
+
+import com.najackdo.server.domain.book.entity.UserBookDetail;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+
+import lombok.RequiredArgsConstructor;
+
+@Repository
+@RequiredArgsConstructor
+public class UserBooksDetailQueryRepositoryImpl implements UserBooksDetailQueryRepository {
+
+	private final JPAQueryFactory queryFactory;
+
+	@Override
+	public Optional<UserBookDetail> findUserBookDetailByUserBookId(Long userBookId) {
+
+		return Optional.ofNullable(
+			queryFactory
+				.select(userBookDetail)
+				.from(userBookDetail)
+				.where(userBookDetail.userBook.id.eq(userBookId))
+				.fetchOne());
+
+	}
+}

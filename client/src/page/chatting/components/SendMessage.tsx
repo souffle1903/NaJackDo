@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5b13007805b051d005afc94d1085fc9c3add3d2df3c8cf490dab44685eac0603
-size 608
+interface SendMessageProps {
+  message: string;
+  talkType: "MESSAGE" | "PAY" | "RETURN";
+}
+
+const SendMessage = ({ message, talkType }: SendMessageProps) => {
+  return (
+    <div className="flex flex-row justify-end w-full">
+      {talkType === "MESSAGE" ? (
+        <p className="bg-main p-3 rounded-xl text-white rounded-tr-none text-right ml-auto">
+          {message}
+        </p>
+      ) : (
+        <p
+          className="p-3 rounded-xl rounded-tr-none text-right ml-auto"
+          dangerouslySetInnerHTML={{ __html: message }}
+        ></p>
+      )}
+    </div>
+  );
+};
+
+export default SendMessage;

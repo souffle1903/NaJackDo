@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ffb09cefc543cc2ab4c3444fbd8e3f8684f7d7b93292470a8ab61c15f4ce6f31
-size 651
+const ApplyBook = () => {
+  return (
+    <div className="flex flex-col items-center justify-center font-bold">
+      <p className="text-center text-sub8 text-lg font-bold">
+        도서 한 권만 등록하고 싶으신가요?
+      </p>
+      <img
+        src="/barcode.png"
+        alt="도서 한 권 등록"
+        width={200}
+        className="mt-6 mb-6"
+      />
+      <p className="text-xl mb-3 ">
+        도서의 <span className="text-sub8">바코드</span>를 촬영해 보세요!
+      </p>
+      <p className="text-sm">AI가 바코드를 인식해 도서의 정보를 불러옵니다</p>
+    </div>
+  );
+};
+
+export default ApplyBook;

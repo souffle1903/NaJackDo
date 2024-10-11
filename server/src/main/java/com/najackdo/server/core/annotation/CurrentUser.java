@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:81e6be6da880950ae78cc1814818bf7491fe2e6529754099239506a095852530
-size 565
+package com.najackdo.server.core.annotation;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+
+@Target(ElementType.PARAMETER)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@AuthenticationPrincipal(expression = "#this == 'anonymousUser' ? null : @fetchUser.apply(#this)", errorOnInvalidType = true)
+public @interface CurrentUser {
+}

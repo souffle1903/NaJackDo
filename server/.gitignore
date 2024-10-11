@@ -1,3 +1,47 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d9bbf04ae04e0b1f4e864d7f5f393833da836a37538fc0ff76e667d23b5559ee
-size 598
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### fireBase ###
+najackdo-notice.json
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+data/
+
+/src/main/resources/application-auth.properties
+/src/main/resources/najackdo-firestore-adminsdk.json
+
+.env
+

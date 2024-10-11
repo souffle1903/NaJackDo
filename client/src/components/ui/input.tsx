@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fad13613746ed07d8e7fce977b4eb1c8970dae22ca6b2bbbb2b8f80e7492fa7e
-size 886
+import * as React from "react";
+
+import { cn } from "lib/utils";
+import { UseFormRegisterReturn } from "react-hook-form";
+
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  register?: UseFormRegisterReturn;
+}
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, register, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+          className
+        )}
+        ref={ref}
+        {...register}
+        {...props}
+      />
+    );
+  }
+);
+Input.displayName = "Input";
+
+export { Input };

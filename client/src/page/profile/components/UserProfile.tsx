@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:31a466e8f12a2513a4f205ad030a21e6b6c4ee9b6567869a74c8a1113ebe941a
-size 1039
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { getUserInfo } from "api/profileApi";
+import { IProfile } from "atoms/Profile.type";
+import MannerTree from "page/profile/components/MannerTree";
+import UserInfo from "page/profile/components/UserInfo";
+import { Fragment } from "react/jsx-runtime";
+
+const UserProfile = () => {
+  const { data: profileInfo } = useSuspenseQuery<IProfile>({
+    queryKey: ["profile"],
+    queryFn: async () => await getUserInfo(),
+  });
+
+  return (
+    <Fragment>
+      {/* 유저 정보 */}
+      <UserInfo
+        userName={profileInfo.nickname}
+        userLocation={profileInfo.locationName}
+        userImage={profileInfo.profileImage}
+        mannerScore={profileInfo.mannerScore}
+      />
+      {/* 신뢰 나무 */}
+      <MannerTree
+        nickname={profileInfo.nickname}
+        mannerScore={profileInfo.mannerScore}
+        goodReviewInfo={profileInfo.goodReviewInfo}
+        badReviewInfo={profileInfo.badReviewInfo}
+      />
+    </Fragment>
+  );
+};
+
+export default UserProfile;

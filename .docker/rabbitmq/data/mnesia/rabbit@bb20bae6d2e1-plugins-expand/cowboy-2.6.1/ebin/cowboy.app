@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f47a6fda12412634ca270fee1db6b8a20d2cdb6b82b1ceee7b340ee093cd83bb
-size 727
+{application,cowboy,
+             [{description,"Small, fast, modern HTTP server."},
+              {vsn,"2.6.1"},
+              {modules, ['cowboy','cowboy_app','cowboy_bstr','cowboy_children','cowboy_clear','cowboy_clock','cowboy_compress_h','cowboy_constraints','cowboy_handler','cowboy_http','cowboy_http2','cowboy_loop','cowboy_metrics_h','cowboy_middleware','cowboy_req','cowboy_rest','cowboy_router','cowboy_static','cowboy_stream','cowboy_stream_h','cowboy_sub_protocol','cowboy_sup','cowboy_tls','cowboy_tracer_h','cowboy_websocket']},
+              {registered,[cowboy_sup,cowboy_clock]},
+              {applications,[kernel,stdlib,crypto,cowlib,ranch]},
+              {mod,{cowboy_app,[]}},
+              {env,[]}]}.

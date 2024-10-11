@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:032175b623169b2255ed5a78abb4e3d008a47b017e2954727f37f712a277822d
-size 883
+import { useLocation, useNavigate } from "react-router-dom";
+
+interface BaseProfileProps {
+  userImage?: string;
+  width?: string;
+  height?: string;
+  userNickname?: string;
+}
+
+const BaseProfile = ({
+  userImage,
+  width,
+  height,
+  userNickname,
+}: BaseProfileProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const handleProfileClick = () => {
+    if (userNickname) {
+      navigate(`/profile/${userNickname}`);
+    }
+  };
+
+  const isRentalPage =
+    location.pathname.includes("/book/") &&
+    location.pathname.includes("/rental");
+
+  return (
+    <img
+      onClick={isRentalPage ? handleProfileClick : undefined}
+      src={userImage || "/basic_profile2.png"}
+      alt="profile"
+      className={`h-${height} w-${width} rounded-full`}
+      style={{ cursor: isRentalPage ? "pointer" : "default" }}
+    />
+  );
+};
+
+export default BaseProfile;

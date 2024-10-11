@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:50ac9876f482b4821e182fbb8f2d05338c2c62b2c66773207d5f139cc7d28ec1
-size 862
+package com.najackdo.server.core.configuration;
+
+import java.util.concurrent.Executor;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+
+// 비동기 설정 클래스
+@EnableAsync
+@Configuration
+public class AsyncConfig {
+
+	@Bean(name = "imageExecutor")
+	public Executor imageUploadExecutor() {
+		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+
+		int corePoolSize = 5;
+		int maxPoolSize = 10;
+		int queueCapacity = 100;
+
+		executor.setThreadGroupName("imageExecutor");
+		executor.setCorePoolSize(corePoolSize);
+		executor.setMaxPoolSize(maxPoolSize);
+		executor.setQueueCapacity(queueCapacity);
+		executor.initialize();
+
+		return executor;
+	}
+}

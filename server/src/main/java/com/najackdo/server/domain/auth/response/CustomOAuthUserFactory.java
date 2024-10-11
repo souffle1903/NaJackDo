@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e42964f1110c8b51021b47e40e5c9e3159d4f3977413164ce2d48985991c3b13
-size 723
+package com.najackdo.server.domain.auth.response;
+
+import java.util.Map;
+
+import com.najackdo.server.domain.auth.response.impl.GoogleResponse;
+import com.najackdo.server.domain.auth.response.impl.KakaoResponse;
+import com.najackdo.server.domain.auth.response.impl.NaverResponse;
+import com.najackdo.server.domain.user.entity.ProviderType;
+
+public class CustomOAuthUserFactory {
+    public static OAuth2Response parseOAuth2Response(ProviderType providerType, Map<String, Object> attributes) {
+        return switch (providerType) {
+            case NAVER -> new NaverResponse(attributes);
+            case GOOGLE -> new GoogleResponse(attributes);
+            case KAKAO -> new KakaoResponse(attributes);
+        };
+    }
+}

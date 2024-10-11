@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d840beebb17545fb494bcec15d689e99da2d13a6ab3081ffb289a1b9900d40e9
-size 602
+package com.najackdo.server.domain.notification.repository;
+
+import com.najackdo.server.domain.notification.entity.Notification;
+import com.najackdo.server.domain.user.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+public interface NotificationRepository extends JpaRepository<Notification, Long>, NotificationQueryRepository {
+
+    @Modifying
+    @Query("update Notification n set n.isRead = true where n.isSend = true")
+    int  updateNotificationIsRead();
+}

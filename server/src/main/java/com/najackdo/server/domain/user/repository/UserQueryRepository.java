@@ -1,3 +1,53 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:175f2951cc7c81b4849d41112ed6417941afa61864df5811526b1d4f73ab49fd
-size 1424
+package com.najackdo.server.domain.user.repository;
+
+import java.util.List;
+
+import org.springframework.data.repository.query.Param;
+
+import com.najackdo.server.domain.user.dto.UserData;
+import com.najackdo.server.domain.user.dto.UserData.CashLogResponse;
+
+public interface UserQueryRepository {
+
+	/**
+	 * 사용자 ID로 절약 금액 조회
+	 *
+	 * @param userId 사용자 ID
+	 * @return {@link Integer} 절약 금액
+	 */
+	Integer findUserSavingCash(@Param("userId") Long userId);
+
+	/**
+	 * 사용자 ID로 벌어들인 금액 조회
+	 *
+	 * @param userId 사용자 ID
+	 * @return {@link Integer} 벌어들인 금액
+	 */
+	Integer findUserEarningCash(@Param("userId") Long userId);
+
+	/**
+	 * 사용자 ID로 사용자 지역 이름 조회
+	 *
+	 * @param userId 사용자 ID
+	 * @return {@link String} 사용자 지역
+	 */
+	String findUserLocationName(@Param("userId") Long userId);
+
+	/**
+	 * 사용자 ID로 사용자 캐시 로그 조회
+	 *
+	 * @param userId 사용자 ID
+	 * @return {@link List<CashLogResponse>} 사용자 캐시 로그
+	 */
+	List<CashLogResponse> findUserCashLog(@Param("userId") Long userId);
+
+	/**
+	 * 사용자 ID로 사용자 리뷰 긍정/부정 개수 조회
+	 *
+	 * @param id 사용자 ID
+	 * @param positive  리뷰 긍정 여부
+	 * @return {@link Long} 리뷰 개수
+	 */
+	List<UserData.reviewInfo> countUserReviewsByPositive(@Param("id") Long id, @Param("positive") boolean positive);
+
+}

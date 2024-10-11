@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3b1cd3855297062f16a96b84c16019a70a20f9d5e91eedc0ca502051c72eef43
-size 549
+import Loading from "components/common/Loading";
+import SmallError from "components/common/SmallError";
+import ChatRoomList from "page/chatting/components/ChatRoomList";
+import { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+
+const ChattingPage = () => {
+  return (
+    <ErrorBoundary fallback={<SmallError />}>
+      <Suspense fallback={<Loading />}>
+        <div className="mx-[25px] relative">
+          <ChatRoomList />
+        </div>
+      </Suspense>
+    </ErrorBoundary>
+  );
+};
+
+export default ChattingPage;

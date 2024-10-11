@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:023ac3b913d5ae7f1affcb18445d95d6b204c10c4556274f19de1f2faac8fc47
-size 607
+package com.najackdo.server.core.response;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+
+public class CustomValidationError {
+    private Map<String, String> errors = new HashMap<>();
+
+    public CustomValidationError(BindingResult bindingResult) {
+        bindingResult.getAllErrors().forEach(error -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+    }
+}

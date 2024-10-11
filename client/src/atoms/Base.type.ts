@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f6ca664bb837bc17df54c486b0a1d6f5ef8b0db9655c13298e406388003e1bd0
-size 651
+export interface BaseResponse<T> {
+  success?: boolean;
+  status?: number;
+  message?: string;
+  data?: T;
+  errors?: object;
+  extras?: object;
+}
+
+export interface IPaging<T> {
+  content: T;
+  pageable: {
+    pageNumber: number;
+    pageSize: number;
+    sort: {
+      empty: boolean;
+      unsorted: boolean;
+      sorted: boolean;
+    };
+    offset: number;
+    unpaged: boolean;
+    paged: boolean;
+  };
+  last: boolean;
+  totalPages: number;
+  totalElements: number;
+  size: number;
+  number: number;
+  sort: {
+    empty: boolean;
+    unsorted: boolean;
+    sorted: boolean;
+  };
+  first: boolean;
+  numberOfElements: number;
+  empty: boolean;
+}

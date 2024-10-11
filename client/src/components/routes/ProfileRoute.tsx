@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d83aaa740fd965dfba166834917aba426dea181fbeb00eb2400a5def5a750588
-size 801
+import KapayPage from "page/kapay/page/KaPayPage";
+import GradePage from "page/profile/page/GradePage";
+import LeafPage from "page/profile/page/LeafPage";
+import OtherProfilePage from "page/profile/page/OtherProfilePage";
+import ProfilePage from "page/profile/page/ProfilePage";
+import { Navigate, Route, Routes } from "react-router-dom";
+
+const ProfileRoute = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<ProfilePage />} />
+      <Route path="/:nickname" element={<OtherProfilePage />} />
+      <Route path="/:nickname/grade" element={<GradePage />} />
+      <Route path="/my-leaf" element={<LeafPage />} />
+      <Route path="/my-leaf/charge" element={<KapayPage />} />
+      <Route path="*" element={<Navigate to="/404" />} />
+    </Routes>
+  );
+};
+
+export default ProfileRoute;

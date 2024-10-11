@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4cd7a1fd5c615b3f1b41ed24062912e76caf87b047a5c2c4f986a2c900caabe4
-size 618
+export interface IProfile {
+  userId: number;
+  nickname: string;
+  profileImage: string;
+  locationName: string;
+  mannerScore: number;
+  goodReviewInfo: IUserReview[];
+  badReviewInfo: IUserReview[];
+  cash?: number;
+  saveCash?: number;
+  earnCash?: number;
+}
+
+export interface ILeafLog {
+  cash: number;
+  resultCash: number;
+  type: string;
+  createdAt: string;
+}
+
+export interface INickname {
+  nickname: string;
+}
+
+export interface IUserInfo {
+  nickname: string;
+  gender: string;
+  age: string;
+  interest: number[];
+}
+
+export interface IUserReview {
+  reviewId: number;
+  content: string;
+  count: number;
+}

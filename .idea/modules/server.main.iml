@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c4266204006906955f9f4eb600657064689bed7be3fb292aa11131f81a64f686
-size 750
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="server:main" external.linked.project.path="$MODULE_DIR$/../../server" external.root.project.path="$MODULE_DIR$/../../server" external.system.id="GRADLE" external.system.module.group="com.najackdo" external.system.module.type="sourceSet" external.system.module.version="0.0.1-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$/../../server/src/main" dumb="true">
+      <sourceFolder url="file://$MODULE_DIR$/../../server/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../server/src/main/resources" type="java-resource" />
+    </content>
+  </component>
+</module>

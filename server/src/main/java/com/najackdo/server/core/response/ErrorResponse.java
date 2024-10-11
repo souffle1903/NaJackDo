@@ -1,3 +1,71 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:621464060e77cd92aa40949b432cf83ae598926ea8e3c0c4bcabec25939654c1
-size 1738
+package com.najackdo.server.core.response;
+
+import net.minidev.json.annotate.JsonIgnore;
+
+import com.najackdo.server.core.exception.ErrorCode;
+import com.nimbusds.jose.shaded.gson.Gson;
+
+import lombok.Getter;
+
+public class ErrorResponse extends BaseResponse<Void> {
+	private final static ErrorResponse EMPTY = new ErrorResponse();
+
+	@JsonIgnore
+	private Void data;
+
+	@Getter
+	private Object extras;
+
+	private ErrorResponse() {
+		this.success = false;
+		this.status = ErrorCode.SERVER_ERROR.getCode();
+		this.message = ErrorCode.SERVER_ERROR.getMessage();
+	}
+
+	private ErrorResponse(ErrorCode errorCode) {
+		this.success = false;
+		this.status = errorCode.getCode();
+		this.message = errorCode.getMessage();
+	}
+
+	private ErrorResponse(ErrorCode errorCode, String message) {
+		this.success = false;
+		this.status = errorCode.getCode();
+		this.message = message;
+	}
+
+	private ErrorResponse(ErrorCode errorCode, Object errors) {
+		this.success = false;
+		this.status = errorCode.getCode();
+		this.message = errorCode.getMessage();
+		this.errors = errors;
+	}
+
+	private ErrorResponse(ErrorCode errorCode, String message, Object extras) {
+		this.success = false;
+		this.status = errorCode.getCode();
+		this.message = message;
+		this.extras = extras;
+	}
+
+	public static ErrorResponse empty() {
+		return EMPTY;
+	}
+
+	public static ErrorResponse of(ErrorCode errorCode) {
+		return new ErrorResponse(errorCode);
+	}
+
+	public static ErrorResponse of(ErrorCode errorCode, String message) {
+		return new ErrorResponse(errorCode, message);
+	}
+
+	public static ErrorResponse of(ErrorCode errorCode, String message, Object extras) {
+		return new ErrorResponse(errorCode, message, extras);
+	}
+
+	public String toJson() {
+		return new Gson().toJson(this);
+	}
+
+}

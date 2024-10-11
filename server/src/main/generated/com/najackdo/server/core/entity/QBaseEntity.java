@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5e16990dc90962698bad54ab7d29d13a90ae7966257c4f5bd5702ec6f08cbfa3
-size 1264
+package com.najackdo.server.core.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.processing.Generated;
+import com.querydsl.core.types.Path;
+
+
+/**
+ * QBaseEntity is a Querydsl query type for BaseEntity
+ */
+@Generated("com.querydsl.codegen.DefaultSupertypeSerializer")
+public class QBaseEntity extends EntityPathBase<BaseEntity> {
+
+    private static final long serialVersionUID = -2007015785L;
+
+    public static final QBaseEntity baseEntity = new QBaseEntity("baseEntity");
+
+    public final QTimeEntity _super = new QTimeEntity(this);
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
+
+    public final BooleanPath isDeleted = createBoolean("isDeleted");
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
+
+    public QBaseEntity(String variable) {
+        super(BaseEntity.class, forVariable(variable));
+    }
+
+    public QBaseEntity(Path<? extends BaseEntity> path) {
+        super(path.getType(), path.getMetadata());
+    }
+
+    public QBaseEntity(PathMetadata metadata) {
+        super(BaseEntity.class, metadata);
+    }
+
+}
+

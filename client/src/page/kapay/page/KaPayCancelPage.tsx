@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f8edaf15ec2ba349a26ae2369f1974ef94738b35b008095f054440e1af83f657
-size 1242
+import { Button } from "components/ui/button";
+import { IoIosLeaf } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+
+const KaPayCancelPage = () => {
+  const navigate = useNavigate();
+  const canCloseWindow = window.opener !== null && !window.opener.closed;
+  const bottonStyle = "bg-sub6 hover:bg-sub7";
+
+  const handleRedirect = () => {
+    navigate("/profile");
+  };
+
+  return (
+    <div
+      className="flex flex-col items-center justify-center"
+      style={{ height: "calc(100vh - 86px)" }}
+    >
+      <span className="maplestory text-4xl text-[#E8B900]">책잎 결제 취소</span>
+      <div className="flex flex-row items-center my-10">
+        <IoIosLeaf color="#79AC78" size={29} className="mx-1" />
+        <p className="font-bold">
+          <span className="text-sub2 text-xl maplestory mr-1">책잎</span>
+          결제 취소가 완료되었습니다.
+        </p>
+      </div>
+      {canCloseWindow ? (
+        <Button className={bottonStyle} onClick={() => window.close()}>
+          닫기
+        </Button>
+      ) : (
+        <Button className={bottonStyle} onClick={handleRedirect}>
+          마이 페이지로!
+        </Button>
+      )}
+    </div>
+  );
+};
+
+export default KaPayCancelPage;

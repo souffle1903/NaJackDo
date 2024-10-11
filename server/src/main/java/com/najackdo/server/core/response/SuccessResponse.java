@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:899adc4239ad4b99a10962e2204d2192641d1fff7a812a5be7b65097d1d9975a
-size 1096
+package com.najackdo.server.core.response;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+
+@Getter
+public class SuccessResponse<T> extends BaseResponse<T> {
+    private final static SuccessResponse<Void> EMPTY = new SuccessResponse<>();
+    private final static SuccessResponse<Void> CREATED = new SuccessResponse<>(201);
+
+    @JsonIgnore
+    private Object errors;
+
+    private SuccessResponse(T data) {
+        this.success = true;
+        this.status = 200;
+        this.message = "success";
+        this.data = data;
+    }
+
+    private SuccessResponse() {
+        this.success = true;
+        this.status = 200;
+        this.message = "success";
+    }
+
+    private SuccessResponse(int status) {
+        this.success = true;
+        this.status = status;
+        this.message = "success";
+    }
+
+    public static <T> SuccessResponse<T> of(T data) {
+        return new SuccessResponse<>(data);
+    }
+
+    public static SuccessResponse<Void> empty() {
+        return EMPTY;
+    }
+
+    public static SuccessResponse<Void> created() {
+        return CREATED;
+    }
+}

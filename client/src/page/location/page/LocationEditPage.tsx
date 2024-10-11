@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b3734da4c0a5b7b528e9988455b3d89263aaec04ca5bfeb0b32c1838a1b458ad
-size 716
+import LocationSetting from "page/location/components/LocationSetting";
+import RangeSetting from "page/location/components/RangeSetting";
+import { useState } from "react";
+
+const LocationEditPage = () => {
+  const [selectedLocation, setSelectedLocation] = useState(null);
+
+  const handleLocationSelect = (
+    locationName,
+    latitude,
+    longitude,
+    locationCode
+  ) => {
+    setSelectedLocation({ locationName, latitude, longitude, locationCode });
+  };
+
+  return (
+    <div>
+      {!selectedLocation ? (
+        <LocationSetting onLocationSelect={handleLocationSelect} />
+      ) : (
+        <RangeSetting selectedLocation={selectedLocation} />
+      )}
+    </div>
+  );
+};
+
+export default LocationEditPage;

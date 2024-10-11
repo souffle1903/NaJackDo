@@ -1,3 +1,48 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:63f14bacfa555d9b582483ba04196d111bb775a1e6b91b726939fbedcce9948d
-size 1018
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
+
+interface ValidState {
+  isSurvey: boolean;
+  isLocation: boolean;
+  setIsSurvey: (isSurvey: boolean) => void;
+  setIsLocation: (isLocation: boolean) => void;
+}
+
+interface IsValidState {
+  isValid: boolean;
+  setIsValid: (isValid: boolean) => void;
+}
+
+export const useValidStore = create(
+  persist<ValidState>(
+    (set) => ({
+      isSurvey: false,
+      isLocation: false,
+      setIsSurvey: (isSurvey) => {
+        set({ isSurvey });
+      },
+      setIsLocation: (isLocation) => {
+        set({ isLocation });
+      },
+    }),
+    {
+      name: "valid-store",
+      storage: createJSONStorage(() => sessionStorage),
+    }
+  )
+);
+
+export const useIsValidStore = create(
+  persist<IsValidState>(
+    (set) => ({
+      isValid: false,
+      setIsValid: (isValid) => {
+        set({ isValid });
+      },
+    }),
+    {
+      name: "is-valid-store",
+      storage: createJSONStorage(() => sessionStorage),
+    }
+  )
+);

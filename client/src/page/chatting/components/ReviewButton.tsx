@@ -1,3 +1,47 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:775fc98b0e4cb01f687f2b8314f41a61b25f3cb8725cc36b11321ba26419cabf
-size 818
+import { useNavigate } from "react-router-dom";
+
+interface ReviewButtonProps {
+  rentalId: number | null;
+  ownerName: string;
+  customerName: string;
+  bookTitle: string;
+  bookImageUrl: string;
+  bookCount: number;
+}
+
+const ReviewButton = ({
+  rentalId,
+  ownerName,
+  customerName,
+  bookTitle,
+  bookImageUrl,
+  bookCount,
+}: ReviewButtonProps) => {
+  const navigate = useNavigate();
+
+  const handleReview = () => {
+    navigate("/chat/review", {
+      state: {
+        rentalId,
+        ownerName,
+        customerName,
+        bookTitle,
+        bookImageUrl,
+        bookCount,
+      },
+    });
+  };
+
+  return (
+    <button
+      className="bg-sub7 text-white rounded-lg py-2 px-3"
+      onClick={handleReview}
+    >
+      후기
+      <br />
+      보내기
+    </button>
+  );
+};
+
+export default ReviewButton;

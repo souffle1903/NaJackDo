@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:297db57f617174324655ed2c0c9d5cf8829a548b50ba4862b22d1156d7fff684
-size 556
+interface OnBoardingProps {
+  title: string;
+  content: string;
+  onboardingImage: string;
+}
+
+const OnBoarding = ({ title, content, onboardingImage }: OnBoardingProps) => {
+  return (
+    <div className="flex flex-col justify-between mt-5">
+      <div>
+        <p className="hakgyo text-4xl my-8">{title}</p>
+        <span
+          className="text-sm"
+          dangerouslySetInnerHTML={{ __html: content }}
+        ></span>
+      </div>
+      <img src={onboardingImage} alt="onboardingImage" width={290} />
+    </div>
+  );
+};
+
+export default OnBoarding;

@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1a0bc8c19c36b1691a47f1a5917d52ecaec8ba3ca2f9c32d402d8c7ae44398d1
-size 951
+import AlertModal from "components/common/AlertModal";
+import Error from "components/common/Error";
+import Loading from "components/common/Loading";
+import ApplyBookResult from "page/bookapply/components/ApplyBookResult";
+import { Suspense, useState } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import { useLocation } from "react-router-dom";
+
+const BookApplyPage = () => {
+  const location = useLocation();
+  const { kind, keyword } = location.state;
+  const [open, setOpen] = useState<boolean>(false);
+
+  return (
+    <ErrorBoundary fallback={<Error />}>
+      <Suspense fallback={<Loading />}>
+        <ApplyBookResult kind={kind} keyword={keyword} setOpen={setOpen} />
+        {open && (
+          <AlertModal
+            open={open}
+            setOpen={setOpen}
+            content="이미 등록된 도서입니다."
+          />
+        )}
+      </Suspense>
+    </ErrorBoundary>
+  );
+};
+
+export default BookApplyPage;

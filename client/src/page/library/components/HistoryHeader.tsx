@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:40e560d1d693d832ed92c7b2baa9dde2247369a1b379c6ea0d8f759a9d445019
-size 610
+import { IoIosArrowBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+
+const HistoryHeader = () => {
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  return (
+    <header className="top-0 z-10 bg-[#F8F6F3] flex items-center justify-between p-6 py-4 mb-4">
+      <div className="items-center flex gap-2">
+        <button onClick={goBack} className="text-2xl ">
+          <IoIosArrowBack />
+        </button>
+        <span className="font-extrabold text-2xl">책 히스토리</span>
+      </div>
+    </header>
+  );
+};
+
+export default HistoryHeader;

@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bae67a381f82c61afd7e83b9530f528737d29ba9d08e87fc6ea6011ead7f1689
-size 643
+package com.najackdo.server.domain.rental.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Getter
+@Table(name = "review_items")
+@NoArgsConstructor
+public class ReviewItems {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "review_item_id")
+	private Long Id;
+
+	@Column(name = "content")
+	private String content;
+
+	@Column(name = "positive")
+	private boolean positive;
+
+}

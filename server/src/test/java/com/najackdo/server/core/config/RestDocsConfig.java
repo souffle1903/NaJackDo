@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:23bfcdaf8f9dc785695b970fa5a9096c705174aa7978dd0a799fd6bd5e2ae2b6
-size 703
+package com.najackdo.server.core.config;
+
+import static com.epages.restdocs.apispec.MockMvcRestDocumentationWrapper.*;
+
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
+import org.springframework.restdocs.operation.preprocess.Preprocessors;
+
+@TestConfiguration
+public class RestDocsConfig {
+	@Bean
+	public RestDocumentationResultHandler restDocumentationResultHandler() {
+		return document("{class-name}/{method-name}",
+			Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),
+			Preprocessors.preprocessResponse(Preprocessors.prettyPrint())
+		);
+	}
+}

@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:39aaeb5efedd7d44ed4fbeef46d2b12eeef2abe551e55131515dabc31f95ab48
-size 620
+package com.najackdo.server.domain.cart.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.najackdo.server.domain.cart.entity.Cart;
+
+public interface CartRepository extends JpaRepository<Cart, Long>, CartQueryRepository {
+
+	@Query("""
+			SELECT c
+			FROM Cart c
+			LEFT JOIN FETCH c.owner
+			LEFT JOIN FETCH c.cartItems
+			LEFT JOIN FETCH c.rental
+			WHERE c.id = :cartId
+			""")
+	Optional<Cart> findCartInfoById(@Param("cartId") Long cartId);
+}

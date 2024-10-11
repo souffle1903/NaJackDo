@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3f248bd04837888d4437f7d0a69f21ebaa614df90ca6b580bc4d45893d9bf416
-size 614
+let socket = new SockJS('/ws'); // WebSocket 엔드포인트 연결
+let stompClient = Stomp.over(socket);
+
+stompClient.connect({}, function(frame) {
+    console.log('Connected: ' + frame);
+
+    // 특정 채팅방 구독
+    stompClient.subscribe('/exchange/chat.exchange/room.665364b2-14a2-4ea0-8107-a81017fbab13', function(message) {
+        console.log(JSON.parse(message.body)); // 메시지 수신
+    });
+
+    // 메시지 보내기
+    stompClient.send("/pub/chat.message.665364b2-14a2-4ea0-8107-a81017fbab13", {}, JSON.stringify({
+        senderId: 'user1',
+        message: 'Hello everyone!'
+    }));
+});

@@ -1,3 +1,58 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7920dc67bd6b35df9a2a0fc9167fbef2d1f81ca932366cbba1136370ece21028
-size 1462
+package com.najackdo.server.domain.location.dto;
+
+import com.najackdo.server.domain.location.entity.Location;
+
+import lombok.Data;
+
+public class LocationData {
+
+	@Data
+	public static class Request {
+		private double longitude;
+		private double latitude;
+	}
+
+	@Data
+	public static class Search {
+		private int locationCode;
+		private String locationName;
+		private Double latitude;
+		private Double longitude;
+
+		public static Search fromEntity(Location location) {
+			Search search = new Search();
+			search.setLocationCode(location.getId());
+			search.setLocationName(location.getLocationName());
+			search.setLatitude(location.getLocationPoint().getY());
+			search.setLongitude(location.getLocationPoint().getX());
+			return search;
+		}
+	}
+
+	@Data
+	public static class SearchWithGeom {
+		private int locationCode;
+		private String locationName;
+		private String locationPoint;
+		private String polygon;
+
+		public static SearchWithGeom fromEntity(Location location) {
+			SearchWithGeom search = new SearchWithGeom();
+			search.setLocationCode(location.getId());
+			search.setLocationName(location.getLocationName());
+			search.setLocationPoint(location.getLocationPoint().toString());
+			search.setPolygon(location.getLocationPolygon().toString());
+			return search;
+		}
+
+		public static Integer onlyLocationCode(Location location) {
+			return location.getId();
+		}
+	}
+
+	@Data
+	public static class Regist {
+		Integer locationCode;
+		Double distanceMeters;
+	}
+}

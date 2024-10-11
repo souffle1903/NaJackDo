@@ -1,3 +1,81 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c5af49d70914dfc263c8c7296fe1c72938af0f405bbaecdd59a3a7bfbe97c6a7
-size 1890
+version: "3.3"
+
+services:
+  database:
+    image: postgis/postgis:16-3.4-alpine
+    container_name: najackdo-database
+    environment:
+      POSTGRES_USER: najackdo
+      POSTGRES_PASSWORD: najackdo
+      POSTGRES_DB: najackdo
+      TIMEZONE: Asia/Seoul
+    ports:
+      - "5432:5432"
+    volumes:
+      - najackdo-db:/var/lib/postgresql/data
+
+  database-admin:
+    container_name: database-admin
+    image: dpage/pgadmin4
+    ports:
+      - "5000:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "najackdo@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "najackdo"
+    restart: always
+
+  cache-database:
+    image: redis:7.4-rc2-alpine
+    container_name: najackdo-cache-database
+    ports:
+      - "6379:6379"
+    entrypoint: redis-server --requirepass najackdo --maxmemory 128mb
+
+  rabbitmq:
+    image: rabbitmq:3.13.3-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=rabbitmqCookie
+      - RABBITMQ_DEFAULT_USER=najackdo
+      - RABBITMQ_DEFAULT_PASS=najackdo
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+      - "61613:61613" # STOMP 기본 포트 추가
+    command: >
+      sh -c "rabbitmq-plugins enable rabbitmq_stomp &&
+                 rabbitmq-server"
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=najackdo
+      - MONGO_INITDB_ROOT_PASSWORD=najackdo
+      - MONGO_INITDB_DATABASE=najackdo
+      - TZ=Asia/Seoul
+
+  fastapi:
+    image: ssafysm/fast-api-server:1.18
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]
+
+
+
+volumes:
+  najackdo-db:
+
+
+
+

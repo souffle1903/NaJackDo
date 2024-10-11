@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ae626f58b50f5070a9a2f8cea8ee4c8dd1ee0fa06ad90417f8b0d3d939b51adb
-size 529
+package com.najackdo.server.domain.user.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.najackdo.server.domain.user.entity.InterestUser;
+import com.najackdo.server.domain.user.entity.User;
+
+public interface InterestUserRepository extends JpaRepository<InterestUser, Long> {
+
+	boolean existsByFollowerAndAndFollowing(User follower, User following);
+
+	void deleteByFollowerAndFollowing(User user, User followingUser);
+
+	boolean existsByFollowerAndFollowing(User follower, User following);
+
+}

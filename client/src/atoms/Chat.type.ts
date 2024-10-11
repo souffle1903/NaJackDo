@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b1416d0e8625fab18009ae2e47b833cac4c5b6ddb5aa3f16a5ccf62d0df24070
-size 809
+export interface IChat {
+  userId: number;
+  chatRoomList: IChatRoom[];
+}
+
+export interface IChatRoom {
+  roomId: number;
+  cartId: number;
+  customerId: number;
+  customerNickname: string;
+  customerProfile: string;
+  customerLocation: string;
+  ownerId: number;
+  ownerNickname: string;
+  ownerProfile: string;
+  ownerLocation: string;
+  lastChatTime: string;
+  lastChatMessage: string;
+  lastChatType: "MESSAGE" | "PAY" | "RETURN";
+  displayImagePath: string;
+}
+
+export interface IChatList {
+  id: string;
+  userId: number;
+  roomId: number;
+  messages: IChatContent[];
+}
+
+export interface IChatContent {
+  senderId: number;
+  senderNickname: string;
+  message: string;
+  talkType: "MESSAGE" | "PAY" | "RETURN";
+  time: string;
+}
+
+export interface IChatReview {
+  rentalId: number;
+  revieweeId: number;
+}

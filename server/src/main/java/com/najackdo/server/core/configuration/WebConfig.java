@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:75b26c346e979504014f27d7add7f24ae03c7551983ae9539618bf0cd2cae0ba
-size 841
+package com.najackdo.server.core.configuration;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
+
+
+	@Override
+	public void addCorsMappings(CorsRegistry registry) {
+		registry.addMapping("/**")
+			.allowedOrigins("http://localhost:3000", "https://www.najackdo.kro.kr", "localhost:8080", "http://j11c105.p.ssafy.io")
+			.allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE")
+			.allowedHeaders("*")
+			.allowCredentials(true);
+	}
+}

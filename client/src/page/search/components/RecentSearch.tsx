@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:39713689f76a6477a2cf0f21f26091d5b773de0f7585690b74553bc554a6bb80
-size 803
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { getRecentSearch } from "api/searchApi";
+import RecentSearchText from "page/search/components/RecentSearchText";
+
+const RecentSearch = () => {
+  const { data: recentSearchData } = useSuspenseQuery<string[]>({
+    queryKey: ["search", "recent"],
+    queryFn: getRecentSearch,
+  });
+
+  return (
+    <div className="my-6 flex flex-col">
+      <span className="font-bold">최근 검색</span>
+      <div>
+        {recentSearchData.length === 0 ? (
+          <p className="my-[100px] text-center">최근 검색어가 없습니다.</p>
+        ) : (
+          recentSearchData.map((text, index) => (
+            <RecentSearchText key={index} text={text} />
+          ))
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default RecentSearch;
